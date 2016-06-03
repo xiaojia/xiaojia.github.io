@@ -1,0 +1,16 @@
+<meta name="name" content="blog:component/navigation/view/main">
+<meta name="style" content="./main">
+
+<div class="navigation">
+
+    <div class="title"><a href="./">ued<span>.life</span></a></div>
+
+    <div class="menu">
+        <ul class="list-unstyled">
+            <?each props?>
+                <li><a href="<?=#$value.href?>"><?=#$value.title?></a></li>
+            <?/each?>
+        </ul>
+    </div>
+
+</div>

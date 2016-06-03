@@ -1,0 +1,42 @@
+/*
+ * default
+ *
+ * name: xiaojia
+ * date: 16/3/24
+ */
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  color: #444;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+ol,
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+a {
+  color: #444;
+  text-decoration: none;
+}
+a:hover {
+  color: #ea0000;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: " ";
+}
+.clearfix:after {
+  clear: both;
+}
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}

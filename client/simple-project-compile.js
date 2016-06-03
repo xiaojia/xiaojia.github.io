@@ -8,13 +8,12 @@
 var path = require('path');
 
 Simple.Tools.compile({
-    name: 'mcw',
+    name: 'blog',
     type: 'client',
     compress: true,
     skip: ['server'],
     apps: {
-        'index.html': 'mcw:application/home/main',
-        'list.html': 'mcw:application/list/main'
+        'index.html': 'blog:application/home/main'
     },
     packages: {
         mcw: path.normalize(__dirname + '/../core/src/mcw/'),

@@ -1,6 +1,6 @@
-// cheerio说明文档
-// 小佳
-// 2016/6/3
+// title: cheerio说明文档
+// author: 小佳
+// date: 2016/6/3
 
 # cheerio [![Build Status](https://secure.travis-ci.org/cheeriojs/cheerio.svg?branch=master)](http://travis-ci.org/cheeriojs/cheerio) [![Gittask](https://gittask.com/cheeriojs/cheerio.svg)](https://gittask.com/cheeriojs/cheerio)
 

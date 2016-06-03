@@ -100,14 +100,14 @@ Simple.Module({
      * @param dtd deferred
      * @param params 参数
      * @param data 返回的数据
-     * @param ajax ajax对象
+     * @param response ajax对象
      * @returns {*}
      */
-    var format = function (that, dtd, params, data, ajax) {
+    var format = function (that, dtd, params, data, response) {
 
         var formatData;
 
-        if (that.format && (formatData = that.format(dtd, params, data, ajax)) !== false) {
+        if (that.format && (formatData = that.format(dtd, params, data, response)) === false) {
         } else {
             formatData = data;
         }

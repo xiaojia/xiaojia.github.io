@@ -18,7 +18,8 @@ Simple.Module({
             },
             {
                 title: 'simple5',
-                href: './'
+                target: '_blank',
+                href: 'https://github.com/xiaojia/simple5'
             },
             {
                 title: '我们',

@@ -14,7 +14,7 @@ Simple.Module({
 
         id: module.id,
 
-        template: function(i,l,a,e){"use strict";var n=this,s=(n.$helpers,n.$each),t=i.props,c=(i.$value,i.$index,function(){var i="".concat.apply("",arguments);return 1==this?i:r+=i}),r="";return r+='<div class="navigation"><div class="title"><a href="./">ued<span>.life</span></a></div><div class="menu"><ul class="list-unstyled">',s(t,function(i,l){r+='<li><a href="',c.call(!1,i.href),r+='">',c.call(!1,i.title),r+="</a></li>"}),r+="</ul></div></div>",new String(r)},
+        template: function(a,e,i,t){"use strict";var l=this,n=(l.$helpers,l.$each),s=a.props,c=(a.$value,a.$index,function(){var a="".concat.apply("",arguments);return 1==this?a:u+=a}),r=l.$escape,u="";return u+='<div class="navigation"><div class="title"><a href="./">ued<span>.life</span></a></div><div class="menu"><ul class="list-unstyled">',n(s,function(a,e){u+="<li><a ",a.target&&(u+='target="',c.call(!1,r(a.target)),u+='"'),u+=' href="',c.call(!1,a.href),u+='">',c.call(!1,a.title),u+="</a></li>"}),u+="</ul></div></div>",new String(u)},
 
         style: ["./main"]
 

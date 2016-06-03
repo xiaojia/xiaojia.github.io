@@ -7,13 +7,13 @@
 .navigation {
   position: absolute;
   left: 0;
-  top: 80px;
+  top: 10px;
   width: 200px;
 }
 .navigation .title {
   font-size: 43px;
   text-align: right;
-  padding-right: 20px;
+  padding-right: 30px;
 }
 .navigation .title span {
   color: #ea0000;
@@ -24,5 +24,5 @@
   border-right: solid 1px #f4f4f4;
 }
 .navigation .menu li {
-  padding: 10px 20px;
+  padding: 10px 30px 10px 20px;
 }

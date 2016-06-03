@@ -34,6 +34,8 @@ Simple.Module({
                 } else {
                     return data;
                 }
+            } else {
+                return data;
             }
 
         }

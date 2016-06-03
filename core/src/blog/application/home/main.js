@@ -66,7 +66,7 @@ Simple.Module({
             var stores = that.stores;
 
             stores.article.request().done(function (article) {
-                console.log(article)
+
                 that.setProps({
                     article: article
                 });

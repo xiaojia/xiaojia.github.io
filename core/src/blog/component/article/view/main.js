@@ -14,7 +14,7 @@ Simple.Module({
 
         id: module.id,
 
-        template: function(i,a,s,n){"use strict";var e=this,t=(e.$helpers,i.props),c=e.$each,l=(i.$value,i.$index,function(){var i="".concat.apply("",arguments);return 1==this?i:v+=i}),d=e.$escape,v="";return v+='<div class="article">',t?c(t,function(i,a){v+='<div class="item"><div class="title"><a href="">',l.call(!1,d(i.title)),v+='</a><span class="time">2016/10/10</span><span class="name">\u674e\u8fc5</span></div><div class="content">\u5185\u5bb9</div></div>'}):v+='<div class="loading">loading...</div>',v+="</div>",new String(v)},
+        template: function(a,i,e,s){"use strict";var l=this,n=(l.$helpers,a.props),c=l.$each,t=(a.$value,a.$index,function(){var a="".concat.apply("",arguments);return 1==this?a:r+=a}),d=l.$escape,r="";return r+='<div class="article">',n?c(n,function(a,i){r+='<div class="item"><div class="title"><a href="">',t.call(!1,d(a.title)),r+='</a><span class="time">',t.call(!1,d(a.time)),r+='</span><span class="name">',t.call(!1,d(a.name)),r+='</span></div><div class="content"><pre>',t.call(!1,a.content),r+='</pre></div><div class="detail"><a href="">\u7ee7\u7eed\u9605\u8bfb</a></div></div>'}):r+='<div class="loading">loading...</div>',r+="</div>",new String(r)},
 
         style: ["./main"]
 

@@ -143,7 +143,7 @@
 
             var attribute = '(?:\\s+' + attr_name + '(?:\\s*=\\s*' + attr_value + ')?)';
 
-            var open_tag = '<[A-Za-z][A-Za-z0-9\\-]*' + attribute + '*\\s*\\/?>';
+            var open_tag = '<[A-Za-z][A-Za-z0-9\\-]*' + attribute + '*\\s*\\/}}';
 
             var close_tag = '<\\/[A-Za-z][A-Za-z0-9\\-]*\\s*>';
             var comment = '<!---->|<!--(?:-?[^>-])(?:-?[^-])*-->';
@@ -3031,10 +3031,10 @@
             var HTML_SEQUENCES = [
                 [/^<(script|pre|style)(?=(\s|>|$))/i, /<\/(script|pre|style)>/i, true],
                 [/^<!--/, /-->/, true],
-                [/^<\?/, /\?>/, true],
+                [/^<\?/, /\}}/, true],
                 [/^<![A-Z]/, />/, true],
                 [/^<!\[CDATA\[/, /\]\]>/, true],
-                [new RegExp('^</?(' + block_names.join('|') + ')(?=(\\s|/?>|$))', 'i'), /^$/, true],
+                [new RegExp('^</?(' + block_names.join('|') + ')(?=(\\s|/}}|$))', 'i'), /^$/, true],
                 [new RegExp(HTML_OPEN_CLOSE_TAG_RE.source + '\\s*$'), /^$/, false]
             ];
 

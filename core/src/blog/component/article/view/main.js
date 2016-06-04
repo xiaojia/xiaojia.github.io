@@ -2,7 +2,7 @@
  * main
  *
  * name: xiaojia
- * date: 2016/5/3
+ * date: 2016/5/4
  */
 
 Simple.Module({

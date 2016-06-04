@@ -7,9 +7,9 @@
 
     <div class="menu">
         <ul class="list-unstyled">
-            <?each props?>
-                <li><a <?if $value.target?>target="<?=$value.target?>"<?/if?> href="<?=#$value.href?>"><?=#$value.title?></a></li>
-            <?/each?>
+            {{each props}}
+                <li><a {{if $value.target}}target="{{=$value.target}}"{{/if}} href="{{=#$value.href}}">{{=#$value.title}}</a></li>
+            {{/each}}
         </ul>
     </div>
 

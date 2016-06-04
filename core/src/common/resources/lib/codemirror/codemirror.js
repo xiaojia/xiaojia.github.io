@@ -11093,7 +11093,7 @@
                     }
                 } else if (stream.eat("?")) {
                     stream.eatWhile(/[\w\._\-]/);
-                    state.tokenize = inBlock("meta", "?>");
+                    state.tokenize = inBlock("meta", "}}");
                     return "meta";
                 } else {
                     type = stream.eat("/") ? "closeTag" : "openTag";

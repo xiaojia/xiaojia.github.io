@@ -3,20 +3,20 @@
 
 <div class="article">
 
-    <?if props?>
-        <?each props?>
+    {{if props}}
+        {{each props}}
             <div class="item">
                 <div class="title">
-                    <a href=""><?=$value.title;?></a>
-                    <span class="time"><?=$value.date?></span>
-                    <span class="name"><?=$value.author?></span>
+                    <a href="">{{=$value.title;}}</a>
+                    <span class="time">{{=$value.date}}</span>
+                    <span class="name">{{=$value.author}}</span>
                 </div>
-                <div class="content"><pre><?=#$value.content?></pre></div>
+                <div class="content"><pre>{{=#$value.content}}</pre></div>
                 <div class="detail"><a href="">继续阅读</a></div>
             </div>
-        <?/each?>
-    <?else?>
+        {{/each}}
+    {{else}}
         <div class="loading">loading...</div>
-    <?/if?>
+    {{/if}}
 
 </div>

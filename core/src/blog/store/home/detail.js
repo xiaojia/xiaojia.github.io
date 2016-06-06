@@ -85,10 +85,10 @@ Simple.Module({
                     var url = Simple.Module.path.source(value.url, null);
                     detail = ajax.get(url, {
                         dataType: 'HTML',
+                        cache: true,
                         context: {
                             url: value.url,
-                            originalUrl: url,
-                            cache: true
+                            originalUrl: url
                         }
                     });
                     return false;

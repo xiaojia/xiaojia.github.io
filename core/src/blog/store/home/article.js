@@ -74,6 +74,8 @@ Simple.Module({
 
         url: 'article/list.json',
 
+        cache: true,
+
         /**
          * 解析文章
          */

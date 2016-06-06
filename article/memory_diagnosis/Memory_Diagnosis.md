@@ -4,7 +4,11 @@
 
 # 内存诊断（Memory Diagnosis）
 
-```原文地址：https://developers.google.com/web/tools/chrome-devtools/profile/memory-problems/memory-diagnosis?hl=en```
+原文地址(需翻墙)：[https://developers.google.com/web/tools/chrome-devtools/profile/memory-problems/memory-diagnosis?hl=en](https://developers.google.com/web/tools/chrome-devtools/profile/memory-problems/memory-diagnosis?hl=en)
+
+转载请注明出处：[https://bruce1i.gitbooks.io/fy-tech/content/Memory_Diagnosis.html](https://bruce1i.gitbooks.io/fy-tech/content/Memory_Diagnosis.html)
+
+---
 
 有效的内存管理是性能的关键。相同的，本地应用(native applications)和网页应用(web apps)都能受到来自内存的泄漏和膨胀，他们（内存泄漏和膨胀）也同样会在垃圾回收停顿期被处理。
 

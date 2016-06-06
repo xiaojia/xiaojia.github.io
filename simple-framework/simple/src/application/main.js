@@ -99,6 +99,15 @@ Simple.Module({
         },
 
         /**
+         * 服务器端和客户端都只调用一次，在初始化渲染执行之前立刻调用。
+         * 如果在这个方法内调用 setState，render() 将会感知到更新后的 state，将会执行仅一次，尽管 state 改变了。
+         * application类下支持异步操作
+         */
+        willMount: function (dtd) {
+            dtd.resolve();
+        },
+
+        /**
          * node端运行的方法,此方法在文件编译之后会删除掉
          * @param context
          */

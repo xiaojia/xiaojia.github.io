@@ -23,12 +23,13 @@ Simple.Module({
      * @param dataType
      * @returns {*}
      */
-    module.exports = function (url, params, method) {
+    module.exports = function (url, params, method, context) {
 
         return request(url, {
             method: method || 'GET',
             params: params,
-            dataType: 'HTML'
+            dataType: 'HTML',
+            context: context || null
         });
 
     };

@@ -6,7 +6,7 @@
  */
 
 Simple.Module({
-    name: 'blog:application/home/action'
+    name: 'blog:application/detail/action'
 }, function (require, module, exports, Simple) {
 
     module.exports = function (that) {

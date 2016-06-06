@@ -57,7 +57,7 @@ Simple.Module({
                 data: {
                     props: that.props
                 },
-                target: Simple.config.container
+                target: that.target || Simple.config.container
             });
 
             /**

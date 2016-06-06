@@ -8,19 +8,41 @@
 Simple.Module({
     name: 'blog:router/main',
     require: [
-        '../application/home/main'
+        '../application/home/main',
+        '../application/detail/main'
     ]
 }, function (require, module, exports, Simple) {
 
     var router = Simple.Router;
 
-    var home = function (params, context) {
-        require('../application/home/main').create({
-            params: params
-        }).render(context);
+    var homeHandle = function (params, context) {
+
+        if (params.hash && params.hash.id) {
+            require('../application/detail/main').create({
+                params: params
+            }).render(context);
+        } else {
+            require('../application/home/main').create({
+                params: params
+            }).render(context);
+        }
     };
 
-    router.use('/', home);
-    router.use('/index.html', home);
+    /**
+     * 监听hash变化
+     */
+    if (Simple.platform.browser) {
+        window.addEventListener('hashchange', function () {
+            var urlObj = router.parse(location.href, true);
+            homeHandle({
+                hash: urlObj.hash,
+                search: urlObj.search,
+                path: null
+            });
+        }, false);
+    }
+
+    router.use('/', homeHandle);
+    router.use('/index.html', homeHandle);
 
 });

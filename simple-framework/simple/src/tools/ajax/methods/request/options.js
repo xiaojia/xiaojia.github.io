@@ -35,6 +35,11 @@ Simple.Module({
         url: './',
 
         /**
+         * 上下文
+         */
+        context: null,
+
+        /**
          * 请求类型 GET POST
          */
         method: "GET",

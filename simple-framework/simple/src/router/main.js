@@ -99,6 +99,15 @@ Simple.Module({
             if (!execStatus && this.defaultHandle != null) {
                 this.defaultHandle(url, callback);
             }
+        },
+
+        parse: function (url, parseParams) {
+            var urlObj = convertUrlObj(url);
+            if (parseParams) {
+                urlObj.hash = parseHashParams(urlObj.hash);
+                urlObj.search = parseSearchParams(urlObj.search);
+            }
+            return urlObj;
         }
 
     });

@@ -1,0 +1,20 @@
+<meta name="name" content="blog:component/detail/view/main">
+<meta name="style" content="./main">
+
+<div class="detail">
+
+    {{if props}}
+        <div class="item">
+            <div class="title clearfix">
+                <a href="#id={{=utils.decodeURIComponent(props.id)}}">{{=props.title}}</a>
+                <span class="time">{{=props.date}}</span>
+                <span class="name">{{=props.author}}</span>
+                <span class="download"><a target="_blank" href="{{=props.originalUrl}}" download="{{=props.title}}.md">下载此文档</a></span>
+            </div>
+            <div class="content">{{=#props.content}}</div>
+        </div>
+    {{else}}
+        <div class="loading">loading...</div>
+    {{/if}}
+
+</div>

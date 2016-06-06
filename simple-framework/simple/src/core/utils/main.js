@@ -24,6 +24,16 @@ Simple.Module({
     underscore.split = require('./split');
 
     /**
+     * decodeURIComponent
+     */
+    underscore.decodeURIComponent = decodeURIComponent;
+
+    /**
+     * encodeURIComponent
+     */
+    underscore.encodeURIComponent = encodeURIComponent;
+
+    /**
      * 重写each forEach
      * @type {underscore.forEach}
      */

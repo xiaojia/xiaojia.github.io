@@ -60,6 +60,7 @@ Simple.Module({
                     title: title,
                     author: author,
                     date: date,
+                    id: value[2],
                     content: content.slice(3).join('\n')
                 });
             }
@@ -82,7 +83,7 @@ Simple.Module({
 
             utils.each(data, function (value) {
                 var url = Simple.Module.path.source(value.url, null);
-                articleRequest.push(ajax.get(url, null, 'html'));
+                articleRequest.push(ajax.get(url, null, 'html', value.url));
             });
 
             deferred.when.apply(deferred.when, articleRequest).done(function () {

@@ -6,13 +6,11 @@
  */
 
 Simple.Module({
-    name: 'blog:component/article/main',
+    name: 'blog:component/detail/main',
     require: [
         './view/main'
     ]
 }, function (require, module, exports, Simple) {
-
-    var route = Simple.Router;
 
     module.exports = Simple.Component.extend({
 

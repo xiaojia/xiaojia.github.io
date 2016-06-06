@@ -35,26 +35,27 @@ Simple.Module({
                 cache: that.cache,
                 timeout: that.timeout,
                 dataType: that.dataType,
+                context: that.context,
                 params: params
             }));
 
             /**
              * 回调
              */
-            that.ajax.done(function (data, response) {
+            that.ajax.done(function (data, response, context) {
 
-                var formatData = format(that, onlineDtd, params, data, response);
+                var formatData = format(that, onlineDtd, params, data, response, context);
 
                 if (formatData !== false) {
-                    onlineDtd.resolve(data, response);
+                    onlineDtd.resolve(data, response, context);
                 }
 
-            }).fail(function (errorCode, errorText, response) {
+            }).fail(function (errorCode, errorText, response, context) {
 
-                var formatData = format(that, onlineDtd, params, null, response);
+                var formatData = format(that, onlineDtd, params, null, response, context);
 
                 if (formatData !== false) {
-                    onlineDtd.reject(errorCode, errorText, response);
+                    onlineDtd.reject(errorCode, errorText, response, context);
                 }
 
             });
@@ -86,7 +87,7 @@ Simple.Module({
      */
     var inline = function (that, dtd, params) {
 
-        var formatData = format(that, dtd, params, that.data);
+        var formatData = format(that, dtd, params, that.data, null, that.context);
 
         if (formatData !== false) {
             dtd.resolve(formatData, 'success');
@@ -101,13 +102,14 @@ Simple.Module({
      * @param params 参数
      * @param data 返回的数据
      * @param response ajax对象
+     * @param context 上下文
      * @returns {*}
      */
-    var format = function (that, dtd, params, data, response) {
+    var format = function (that, dtd, params, data, response, context) {
 
         var formatData;
 
-        if (that.format && (formatData = that.format(dtd, params, data, response)) === false) {
+        if (that.format && (formatData = that.format(dtd, params, data, response, context)) === false) {
         } else {
             formatData = data;
         }

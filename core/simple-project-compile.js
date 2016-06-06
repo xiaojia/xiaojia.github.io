@@ -13,11 +13,12 @@ Simple.Tools.compile({
     compress: true,
     skip: ['server'],
     apps: {
-        'index.html': 'blog:application/home/main'
+        'home.html': 'blog:application/home/main',
+        'detail.html': 'blog:application/detail/main'
     },
     packages: {
         blog: path.normalize(__dirname + '/src/blog/'),
         common: path.normalize(__dirname + '/src/common/'),
-        simple: path.normalize(__dirname + '/../../simple-framework/simple/src/')
+        simple: path.normalize(__dirname + '/../simple-framework/simple/src/')
     }
 });

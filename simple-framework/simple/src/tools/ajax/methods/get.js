@@ -23,12 +23,13 @@ Simple.Module({
      * @param dataType
      * @returns {*}
      */
-    module.exports = function (url, params, dataType) {
+    module.exports = function (url, params, dataType, context) {
 
         return request(url, {
             method: 'GET',
             params: params || {},
-            dataType: dataType || 'JSON'
+            dataType: dataType || 'JSON',
+            context: context || null
         });
 
     };

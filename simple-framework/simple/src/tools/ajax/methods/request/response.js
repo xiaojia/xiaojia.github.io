@@ -100,14 +100,14 @@ Simple.Module({
                     /**
                      * 成功
                      */
-                    dtd.resolve(data.data, response);
+                    dtd.resolve(data.data, response, options.context);
 
                 } else {
 
                     /**
                      * 失败
                      */
-                    dtd.reject(data.errorCode, data.message, response);
+                    dtd.reject(data.errorCode, data.message, response, options.context);
 
                 }
 
@@ -116,7 +116,7 @@ Simple.Module({
                 /**
                  * 直接返回数据, 不做处理
                  */
-                dtd.resolve(data, response);
+                dtd.resolve(data, response, options.context);
 
             }
 
@@ -137,7 +137,7 @@ Simple.Module({
             /**
              * 直接返回数据, 不做处理
              */
-            dtd.reject(response.statusCode, response.statusText, response);
+            dtd.reject(response.statusCode, response.statusText, response, options.context);
 
         }
 

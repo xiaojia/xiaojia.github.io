@@ -2,7 +2,7 @@
  * main
  *
  * name: xiaojia
- * date: 2016/5/4
+ * date: 2016/5/6
  */
 
 Simple.Module({
@@ -14,7 +14,7 @@ Simple.Module({
 
         id: module.id,
 
-        template: function(a,i,s,e){"use strict";var l=this,t=(l.$helpers,a.props),c=l.$each,n=(a.$value,a.$index,function(){var a="".concat.apply("",arguments);return 1==this?a:r+=a}),d=l.$escape,r="";return r+='<div class="article">',t?c(t,function(a,i){r+='<div class="item"><div class="title"><a href="">',n.call(!1,d(a.title)),r+='</a><span class="time">',n.call(!1,d(a.date)),r+='</span><span class="name">',n.call(!1,d(a.author)),r+='</span></div><div class="content"><pre>',n.call(!1,a.content),r+='</pre></div><div class="detail"><a href="">\u7ee7\u7eed\u9605\u8bfb</a></div></div>'}):r+='<div class="loading">loading...</div>',r+="</div>",new String(r)},
+        template: function(a,i,e,l){"use strict";var c=this,n=c.$helpers,s=a.props,t=c.$each,d=(a.$value,a.$index,function(){var a="".concat.apply("",arguments);return 1==this?a:p+=a}),o=c.$escape,r=n.utils,p="";return p+='<div class="article">',s?t(s,function(a,i){p+='<div class="item"><div class="title"><a href="#id=',d.call(!1,o(r.decodeURIComponent(a.id))),p+='">',d.call(!1,o(a.title)),p+='</a><span class="time">',d.call(!1,o(a.date)),p+='</span><span class="name">',d.call(!1,o(a.author)),p+='</span></div><div class="content"><pre>',d.call(!1,a.content),p+='</pre></div><div class="detail"><a href="#id=',d.call(!1,o(r.decodeURIComponent(a.id))),p+='">\u7ee7\u7eed\u9605\u8bfb</a></div></div>'}):p+='<div class="loading">loading...</div>',p+="</div>",new String(p)},
 
         style: ["./main"]
 

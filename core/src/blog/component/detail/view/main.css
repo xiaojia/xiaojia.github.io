@@ -1,0 +1,49 @@
+/*
+ * main
+ *
+ * name: xiaojia
+ * date: 16/3/24
+ */
+.detail {
+  padding: 20px 20px 20px 230px;
+}
+.detail .loading {
+  text-align: center;
+  padding: 20% 0;
+}
+.detail .item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #f4f4f4;
+}
+.detail .item .title {
+  font-size: 24px;
+}
+.detail .item .title > a {
+  padding-right: 10px;
+}
+.detail .item .title > span {
+  font-size: 12px;
+  color: #9a9a9a;
+  padding-right: 10px;
+}
+.detail .item .title > span.download {
+  float: right;
+  margin-top: 15px;
+}
+.detail .item .title > span.download a {
+  color: #444;
+}
+.detail .item .content {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #797979;
+  line-height: 1.5;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.detail .item .detail {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 12px;
+}

@@ -78,23 +78,23 @@ Simple.Module({
     }
 
     function getRefTarget(dom) {
-        if (dom.getAttribute('ref') != null) {
-            return dom;
+        if (dom && dom.nodeType === 1) {
+            if (dom.getAttribute('ref') != null) {
+                return dom;
+            }
+            return getRefTarget(dom.parentNode);
         }
-
-        return getRefTarget(dom.parentNode);
     }
 
     function getItself(dom) {
-        if (dom.getAttribute(comID) != null) {
-            return dom;
+        if (dom && dom.nodeType === 1) {
+            if (dom.getAttribute(comID) != null) {
+                return dom;
+            }
+            if (dom.parentNode != null) {
+                return getItself(dom.parentNode);
+            }
         }
-
-        if (dom.parentNode != null) {
-            return getItself(dom.parentNode);
-        }
-
-        throw new Error('can not find itself.');
     }
 
     function isListener(dom, event) {
@@ -271,7 +271,6 @@ Simple.Module({
                 _target[strSimpleEventsNS][evalStopPropagationName()] = false;
             };
             // 重写标准e.stopPropagation() END
-
 
             var itself = getItself(_target);
             var ref = getRefName(_target);

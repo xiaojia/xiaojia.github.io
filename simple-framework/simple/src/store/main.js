@@ -93,6 +93,11 @@ Simple.Module({
         timeout: 10000,
 
         /**
+         * 上下文
+         */
+        context: null,
+
+        /**
          * 分页配置
          */
         pagingOptions: {

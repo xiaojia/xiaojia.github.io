@@ -6,14 +6,17 @@
  */
 
 Simple.Module({
-    name: 'blog:application/home/main',
+    name: 'blog:application/detail/main',
     require: [
         './com',
+        './action',
         './view/main',
         'blog:store/home/navigation',
-        'blog:store/home/article'
+        'blog:store/home/detail'
     ]
 }, function (require, module, exports, Simple) {
+
+    var action = require('./action');
 
     module.exports = Simple.Application.extend({
 
@@ -26,14 +29,16 @@ Simple.Module({
 
             that.props = {
                 navigation: [],
-                article: []
+                detail: {}
             };
+
+            action(that);
 
         },
 
         stores: {
             navigation: require('blog:store/home/navigation').create(),
-            article: require('blog:store/home/article').create()
+            detail: require('blog:store/home/detail').create()
         },
 
         willMount: function (dtd) {
@@ -60,10 +65,12 @@ Simple.Module({
             var that = this;
             var stores = that.stores;
 
-            stores.article.request().done(function (article) {
+            stores.detail.request({
+                id: that.params.hash.id
+            }).done(function (detail) {
 
                 that.setProps({
-                    article: article
+                    detail: detail
                 });
 
             });

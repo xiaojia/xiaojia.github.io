@@ -85,7 +85,11 @@ Simple.Module({
 
             utils.each(data, function (value) {
                 var url = Simple.Module.path.source(value.url, null);
-                articleRequest.push(ajax.get(url, null, 'html', value.url));
+                articleRequest.push(ajax(url, {
+                    dataType: 'HTML',
+                    context: value.url,
+                    cache: true
+                }));
             });
 
             deferred.when.apply(deferred.when, articleRequest).done(function () {

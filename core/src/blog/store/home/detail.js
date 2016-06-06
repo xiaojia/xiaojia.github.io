@@ -83,9 +83,13 @@ Simple.Module({
             utils.each(data, function (value) {
                 if (value.url === params.id) {
                     var url = Simple.Module.path.source(value.url, null);
-                    detail = ajax.get(url, null, 'html', {
-                        url: value.url,
-                        originalUrl: url
+                    detail = ajax.get(url, {
+                        dataType: 'HTML',
+                        context: {
+                            url: value.url,
+                            originalUrl: url,
+                            cache: true
+                        }
                     });
                     return false;
                 }

@@ -46,7 +46,7 @@
 
 打开后，在列的头部（任务标题栏）右击鼠标，在弹出的列表中勾选JavaScript使用的内存。执行一些可能会使用大量内存的行为并监视活动内存的变化情况：
 
-![](/article/memory_diagnosis/task-manager.png)
+![](http://www.ued.life/article/memory_diagnosis/task-manager.png)
 
 ### 使用内存视图确定内存占用是否正在增长（Determine if memory usage is growing using memory view）
 
@@ -54,13 +54,13 @@
 
 你可以看到应用程序的内存分配曲线图。随着时间的推移，如果内存消耗的越来越多（没有任何下降），这是一个迹象表明你可能有内存泄漏：
 
-![](/article/memory_diagnosis/normal-sawtooth.png)
+![](http://www.ued.life/article/memory_diagnosis/normal-sawtooth.png)
 
 一个健康的应用轮廓图应该看起来像一个锯齿形曲线，因为内存被分配，接着，当垃圾回收介入时释放内存。有一些事情是不用去担心的－JavaScript本身一直会有一个开销成本在做一些事情，甚至一个空的requestAnimationFrame也会引起一个锯齿形的曲线，你不可能避免他。
 
 仅仅确保曲线图不是陡峭的,陡峭的曲线图表示正在进行大量的分配操作，换而言之,这可以等同于产生大量的垃圾。你需要留意的是曲线图倾斜度的增长率。
 
-![](/article/memory_diagnosis/steep-sawtooth.png)
+![](http://www.ued.life/article/memory_diagnosis/steep-sawtooth.png)
 
 这里也有一个DOM节点计数器、文档计数器和事件监听计数在内存视图中，这些数据在一个诊断期是非常有用的。DOM节点使用本地内存(native memory)且不会直接地影响JavaScript内存曲图表。
 
@@ -78,17 +78,17 @@ heap profiler显示了你页面上JavaScript对象和相关DOM节点的内存分
 
 这里有大量的数据在‘Constructor’和‘Retained Size’列。在引起一个内存泄漏时，有着最短距离的留存对象通常是你的第一候选对象。留存的对象在窗口中按照距离进行了排序，从第一个留存对象开始你的内存泄漏调查。
 
-![](/article/memory_diagnosis/first-retained.jpg)
+![](http://www.ued.life/article/memory_diagnosis/first-retained.jpg)
 
 且留意黄色和红色对象在你的heap快照中。红色节点（有一个深色背景）表示没有来自JavaScript到他们的直接引用，他们还存活着是因为他们是分离的DOM树的一部分。他们可能是JavaScript引用的一个树的节点（可能是一个闭包或者变量），但他恰巧阻止了整个DOM树被垃圾回收。
 
-![](/article/memory_diagnosis/red-yellow-objects.jpg)
+![](http://www.ued.life/article/memory_diagnosis/red-yellow-objects.jpg)
 
 黄色节点（有一个黄色背景）表示有来自JavaScript的直接引用。寻找在同一个分离的DOM树中的黄色节点去定位到来自你JavaScript的引用。那里可能是一个属性的链式调用从window到元素（例如：window.foo.bar[2].baz）。
 
 观察下面的动画，以理解分离的节点在整个图片中的变化：
 
-![](/article/memory_diagnosis/detached-nodes.gif)
+![](http://www.ued.life/article/memory_diagnosis/detached-nodes.gif)
 
 **例子：**尝试这个[分离的节点](https://github.com/GoogleChrome/devtools-docs/blob/master/docs/demos/memory/example4.html)例子，在哪里，你可以在Timeline观察节点的演变，接着获取heap快照来找到分离的节点。
 
@@ -98,7 +98,7 @@ heap profiler显示了你页面上JavaScript对象和相关DOM节点的内存分
 
 跟踪对象堆分配分析涉及开始一个记录，执行一系列动作，然后停止记录。对象跟踪器会周期性的（差不多每隔50ms）获取堆快照在整个记录期中和一个最终的快照在记录结束时。堆分配图表显示了正在创建的对象和标识的留存路径：
 
-![](/article/memory_diagnosis/allocation-tracker.png)
+![](http://www.ued.life/article/memory_diagnosis/allocation-tracker.png)
 
 学习如何使用这个工具见‘[如何使用分配探查器工具](https://developers.google.com/web/tools/chrome-devtools/profile/memory-problems/allocation-profiler)’。
 

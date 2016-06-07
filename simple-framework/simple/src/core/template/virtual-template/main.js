@@ -124,7 +124,7 @@ Simple.Module({
                 }
 
             } else {
-                throw 'render error <Simple.Application> 必须有一个容器';
+                throw new TypeError('render error <Simple.Application> 必须有一个容器');
             }
 
             return that;

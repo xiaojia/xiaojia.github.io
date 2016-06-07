@@ -8,7 +8,6 @@
 Simple.Module({
     name: 'simple:tools/ajax/http/client/main',
     require: [
-        './xml-http-request',
         './options',
         './cache'
     ]
@@ -20,7 +19,6 @@ Simple.Module({
 
     var cacheHandle = require('./cache');
     var optionsHandle = require('./options');
-    var xmlHttpRequest = require('./xml-http-request');
 
     var LastModified = {};
     var ETag = {};
@@ -51,15 +49,10 @@ Simple.Module({
          */
         var abortText = '', abortCode = '';
 
-        /**
-         * 是否有缓存
-         */
-        var isCache = false;
-
-        /**
-         * 处理params, url信息
-         */
-        optionsHandle.paramsHandle(options);
+        ///**
+        // * 是否有缓存
+        // */
+        //var isCache = false;
 
         ///**
         // * 如果读取缓存
@@ -76,18 +69,9 @@ Simple.Module({
         //}
 
         /**
-         * 自定义XmlHttpRequest
+         * 初始化xhr
          */
-        if (options.xhr) {
-            http = options.xhr(options);
-        } else {
-
-            /**
-             * 创建http对象
-             */
-            http = xmlHttpRequest();
-
-        }
+        http = options.xhr(options);
 
         /**
          * 请求
@@ -225,7 +209,7 @@ Simple.Module({
             timeoutTimer = setTimeout(function () {
                 abortText = 'timeout';
                 abortCode = '404';
-                http.abort();
+                http.abort && http.abort();
             }, options.timeout);
         }
 
@@ -233,6 +217,13 @@ Simple.Module({
          * 回调状态
          */
         http.onreadystatechange = requestCallback;
+
+        /**
+         * 发送之前
+         */
+        if (options.beforeSend) {
+            options.beforeSend(options, http);
+        }
 
         /**
          * 发送请求

@@ -33,9 +33,9 @@ Simple.Module({
             that.ajax = request(that.url, utils.extend({}, that.ajaxOptions, {
                 method: that.method,
                 cache: that.cache,
-                timeout: that.timeout,
                 dataType: that.dataType,
                 context: that.context,
+                jsonp: that.jsonp,
                 params: params
             }));
 
@@ -61,7 +61,7 @@ Simple.Module({
             });
 
         } else {
-            throw 'store 没有找到 url';
+            throw new TypeError('store 没有找到 url');
         }
 
         /**
@@ -72,7 +72,6 @@ Simple.Module({
             that.response = response;
             dtd.resolve(data, response);
         }, function (errorCode, errorText, response) {
-            that.data = null;
             that.response = response;
             dtd.reject(errorCode, errorText, response);
         });

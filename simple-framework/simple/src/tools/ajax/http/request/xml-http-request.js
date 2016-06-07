@@ -6,7 +6,7 @@
  */
 
 Simple.Module({
-    name: 'simple:tools/ajax/http/client/xml-http-request'
+    name: 'simple:tools/ajax/http/request/xml-http-request'
 }, function (require, module, exports, Simple) {
 
     "use strict";
@@ -30,7 +30,7 @@ Simple.Module({
                 }
             }
         } catch (e) {
-            throw 'CreateXmlHttpRequest error ' + e.message;
+            throw new TypeError('CreateXmlHttpRequest error ' + e.message);
         }
 
         return xmlHttp;

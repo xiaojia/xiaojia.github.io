@@ -51,7 +51,7 @@ Simple.Module({
 
             that.willMount(dtd);
 
-            dtd.then(callback, callback).catch(function (e) {
+            dtd.then(callback, callback)['catch'](function (e) {
                 console && console.error(e);
             });
 

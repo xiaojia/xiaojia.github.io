@@ -11,7 +11,8 @@ Simple.Module({
         '../http/main',
         './request/options',
         './request/url',
-        './request/response'
+        './request/response',
+        '../main'
     ]
 }, function (require, module, exports, Simple) {
 
@@ -47,12 +48,22 @@ Simple.Module({
     var httpCallback = require('./request/response');
 
     /**
+     * 因为是循环依赖, 所以在使用时在require
+     * @type {null}
+     */
+    var ajax = null;
+
+    /**
      * ajax请求
      * @param url
      * @param options
      * @returns {*}
      */
     module.exports = function (url, userOptions) {
+
+        if (!ajax) {
+            ajax = require('../main');
+        }
 
         var dtd = deferred();
 
@@ -97,9 +108,51 @@ Simple.Module({
         };
 
         /**
-         * 请求
+         * 检查是否node读取过该数据
          */
-        var currentHttp = http(options);
+        var nodeData = ajax.getData(options.url);
+
+        if (nodeData) {
+
+            /**
+             * 转换成字符串
+             */
+            if (typeof nodeData !== 'string') {
+                nodeData = JSON.stringify(nodeData);
+            }
+
+            /**
+             * 直接回调
+             */
+            options.callback(true, {
+                responseURL: options.url,
+                status: '200',
+                statusText: 'OK',
+                text: nodeData
+            });
+
+        } else {
+
+            /**
+             * 增加token字段
+             */
+            if (options.token) {
+                options.url += (options.url.indexOf('?') > -1 ? '&' : '?') + options.token.key + '=' + encodeURIComponent(options.token.value);
+            }
+
+            /**
+             * 增加缓存字段
+             */
+            if (!options.cache) {
+                options.url += (options.url.indexOf('?') > -1 ? '&' : '?') + '_=' + Math.random();
+            }
+
+            /**
+             * 请求
+             */
+            var currentHttp = http(options);
+
+        }
 
         /**
          * promise

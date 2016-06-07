@@ -208,7 +208,7 @@
              * @type {number}
              */
             var timer = setTimeout(function () {
-                throw 'timeout 模块加载超时 ' + (Module.TIMEOUT_DEFAULT / 1000) + '秒 ' + name + '\n' + Module.source(name);
+                new Error('timeout 模块加载超时 ' + (Module.TIMEOUT_DEFAULT / 1000) + '秒 ' + name + '\n' + Module.source(name));
             }, Module.TIMEOUT_DEFAULT);
 
             var success = function () {
@@ -319,7 +319,7 @@
          */
         checkName: function () {
             if (!(typeof this.name === 'string' && this.name)) {
-                throw 'module 模块必须有名字';
+                throw new TypeError('module 模块必须有名字');
             }
         },
 
@@ -491,7 +491,7 @@
             if ('onload' in script) {
                 script.onload = success;
                 script.onerror = function () {
-                    throw 'file 文件加载失败 ' + src;
+                    throw new TypeError('file 文件加载失败 ' + src);
                 };
             } else {
                 script.attachEvent('onreadystatechange', function () {
@@ -555,7 +555,7 @@
                 if (IsNode) {
                     return require(Module.source(path));
                 } else {
-                    throw 'require 找不到模块 ' + path + '\n filename: ' + that.module.filename + '\n name: ' + name;
+                    throw new TypeError('require 找不到模块 ' + path + '\n filename: ' + that.module.filename + '\n name: ' + name);
                 }
             }
 

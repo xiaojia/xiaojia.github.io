@@ -104,6 +104,15 @@ Simple.Module({
 
     });
 
+    module.exports.reopenClass({
+
+        /**
+         * template helpers方法
+         */
+        helpers: engine.$helpers
+
+    });
+
     module.exports.setName(module.id);
 
 });

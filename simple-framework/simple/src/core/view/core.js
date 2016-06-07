@@ -103,7 +103,7 @@ Simple.Module({
             }
 
         } else {
-            throw 'component render error \nname: ' + name;
+            throw new TypeError('component render error \nname: ' + name);
         }
 
     };

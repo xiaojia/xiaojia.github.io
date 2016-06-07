@@ -11,7 +11,9 @@ Simple.Module({
         './underscore',
         './clone',
         './extend',
-        './split'
+        './split',
+        './param',
+        './each'
     ]
 }, function (require, module, exports, Simple) {
 
@@ -19,8 +21,28 @@ Simple.Module({
 
     var underscore = require('./underscore');
 
+    /**
+     * underscore
+     * @type {_|exports|module.exports}
+     */
+    module.exports = underscore;
+
+    /**
+     * 重写clone, 内部判断数组或者对象
+     * @type {*|exports|module.exports}
+     */
     underscore.clone = require('./clone');
+
+    /**
+     * extend, 移植jquery.extend
+     * @type {*|exports|module.exports}
+     */
     underscore.extend = require('./extend');
+
+    /**
+     * 字符串分割
+     * @type {*|exports|module.exports}
+     */
     underscore.split = require('./split');
 
     /**
@@ -37,31 +59,12 @@ Simple.Module({
      * 重写each forEach
      * @type {underscore.forEach}
      */
-    underscore.each = underscore.forEach = function (obj, iteratee, context) {
+    underscore.each = underscore.forEach = require('./each');
 
-        var i, length;
-
-        iteratee = iteratee.bind(context);
-
-        if (underscore.isArray(obj)) {
-            for (i = 0, length = obj.length; i < length; i++) {
-                if (iteratee(obj[i], i, obj) === false) {
-                    break;
-                }
-            }
-        } else if (underscore.isObject(obj)) {
-            var keys = underscore.keys(obj);
-            for (i = 0, length = keys.length; i < length; i++) {
-                if (iteratee(obj[keys[i]], keys[i], obj) === false) {
-                    break;
-                }
-            }
-        }
-
-        return obj;
-
-    };
-
-    module.exports = underscore;
+    /**
+     * 对象转url参数, 移植jquery.param
+     * @type {*|exports|module.exports}
+     */
+    underscore.param = require('./param');
 
 });

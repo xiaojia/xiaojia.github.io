@@ -11,6 +11,8 @@ Simple.Module({
 
     "use strict";
 
+    var utils = Simple.Utils;
+
     /**
      * 重写url地址
      * @example host://get/${id} => http://get/1
@@ -50,7 +52,45 @@ Simple.Module({
         }
     };
 
+    /**
+     * url参数排序, 保证缓存不会重复
+     * @param url
+     */
+    var paramSort = function (url, traditional) {
+
+        var queIndex = null;
+
+        /**
+         * 如果有参数
+         */
+        if ((queIndex = url.indexOf('?')) > -1) {
+
+            var param = url.substring(queIndex + 1);
+            var paramObj = utils.split(param, '&', '=', true);
+
+            /**
+             * 取出对象的key, 并且排序
+             */
+            var sortParam = utils.object(utils.sortBy(utils.pairs(paramObj)));
+
+            /**
+             * 返回排序后的数据
+             */
+            return url.replace(/\?.*$/ig, '?' + utils.param(sortParam, traditional));
+
+        }
+
+        return url;
+
+    };
+
     module.exports = function (options) {
+
+        /**
+         * 去除hash, 如果有的话
+         * @type {string|XML}
+         */
+        options.url = options.url.replace(/#.*$/ig, '');
 
         /**
          * 重写url地址
@@ -63,6 +103,26 @@ Simple.Module({
          * @example host://get => http://xxx.com/get
          */
         options.url = protocolReplace(options.url);
+
+        /**
+         * 格式化数据, object to string
+         */
+        if (typeof options.params !== 'string' && options.processData) {
+            options.params = utils.param(options.params, options.traditional);
+        }
+
+        /**
+         * 如果是GET，则合并数据
+         */
+        if (options.method === 'GET' && options.params && options.processData) {
+            options.url += (options.url.indexOf('?') > -1 ? '&' : '?') + options.params;
+            options.params = null;
+        }
+
+        /**
+         * url参数排序
+         */
+        options.url = paramSort(options.url, options.traditional);
 
     };
 

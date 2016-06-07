@@ -40,7 +40,6 @@ Simple.Module({
 
                 if (trim) {
                     keyName = keyName.trim();
-                    keyValue = keyValue.trim();
                 }
 
                 if (typeof list[keyName] === "undefined") {

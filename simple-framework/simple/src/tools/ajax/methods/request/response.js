@@ -28,7 +28,7 @@ Simple.Module({
             return dataParse[dataType](options, data);
         } else {
 
-            if (dataType === 'JSON' || dataType === 'JSONP') {
+            if (dataType === 'JSON') {
                 if (typeof data === 'string') {
                     return JSON.parse(data.trim());
                 } else {
@@ -93,9 +93,9 @@ Simple.Module({
             /**
              * 是否走标准流程
              */
-            if (options.canonical && options.dataType === 'JSON' || options.dataType === 'JSONP') {
+            if (options.canonical && options.dataType === 'JSON') {
 
-                if (data.success) {
+                if (data.success === true) {
 
                     /**
                      * 成功
@@ -107,7 +107,7 @@ Simple.Module({
                     /**
                      * 失败
                      */
-                    dtd.reject(data.errorCode, data.message, response, options.context);
+                    dtd.reject(data.errorCode || null, data.message || null, response, options.context);
 
                 }
 

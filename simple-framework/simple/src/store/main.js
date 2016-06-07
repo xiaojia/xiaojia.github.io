@@ -69,7 +69,12 @@ Simple.Module({
         /**
          * ajax返回数据类型
          */
-        dataType: 'json',
+        dataType: 'JSON',
+
+        /**
+         * 是否启用jsonp
+         */
+        jsonp: false,
 
         /**
          * 数据返回之前的格式化, 支持异步
@@ -86,11 +91,6 @@ Simple.Module({
          * 是否启动分页
          */
         paging: false,
-
-        /**
-         * 超时时间
-         */
-        timeout: 10000,
 
         /**
          * 上下文
@@ -130,7 +130,7 @@ Simple.Module({
         /**
          * 请求类型
          */
-        method: 'get',
+        method: 'GET',
 
         /**
          * 请求

@@ -30,6 +30,33 @@ Simple.Module({
         dataType: 'JSON',
 
         /**
+         * 是否启用jsonp
+         */
+        jsonp: false,
+
+        /**
+         * 是否做跨域请求, IE6,7通过jsonp, IE8通过XDomainRequest, 其他高级浏览器通过XMLHttpRequest
+         * jsonp只能发送get数据
+         * XDomainRequest不能发送cookie, cookie可以通过url形式传送, 但是需要手动配置参数
+         */
+        crossDomain: true,
+
+        /**
+         * JSONP callback回调名称
+         */
+        callbackName: 'callback',
+
+        /**
+         * 是否启用token
+         */
+        token: false,
+
+        /**
+         * jsonp 格式时,请求数据的编码
+         */
+        charset: 'UTF-8',
+
+        /**
          * 请求的地址
          */
         url: './',
@@ -101,11 +128,6 @@ Simple.Module({
             type: 'memory'
 
         },
-
-        /**
-         * jsonp 格式时,请求数据的编码
-         */
-        charset: 'UTF-8',
 
         /**
          * 如果你想要用传统的方式来序列化数据，那么就设置为 true

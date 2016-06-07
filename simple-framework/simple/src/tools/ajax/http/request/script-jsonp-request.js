@@ -6,7 +6,7 @@
  */
 
 Simple.Module({
-    name: 'simple:tools/ajax/http/client/jsonp'
+    name: 'simple:tools/ajax/http/request/script-jsonp-request'
 }, function (require, module, exports, Simple) {
 
     "use strict";
@@ -17,8 +17,10 @@ Simple.Module({
      * @constructor
      */
     var JSONP = function (options) {
-        this.options = options;
-        this.readyState = 0;
+        var that = this;
+        that.options = options;
+        that.readyState = 0;
+        that.isAbort = false;
     };
 
     JSONP.prototype = {
@@ -99,12 +101,13 @@ Simple.Module({
              * @param data
              */
             window[callbackName] = function (data) {
-                if (!that.isAbort) {
+                if (that.isAbort) {
+                    that.isAbort = false;
+                    callback(false, 'abort', 404);
+                } else {
                     that.readyState = 4;
                     script.setAttribute('spl-jsonp-status', 'success');
                     callback(true, 'OK', 200, data);
-                } else {
-                    callback(false, 'abort', 404);
                 }
             };
 

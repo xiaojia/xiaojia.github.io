@@ -46,12 +46,11 @@
   max-width: 100%;
 }
 .detail .item .content ul {
-  border-left: 3px solid #d2d2d2;
-  padding-left: 15px;
-  list-style: disc;
+  padding-left: 25px;
 }
 .detail .item .content ul li {
   padding: 4px 0;
+  list-style: disc;
 }
 .detail .item .detail {
   text-align: right;

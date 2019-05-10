@@ -1,0 +1,58 @@
+{
+    "name": "ued",
+    "version": "1.0.0",
+    "description": "",
+    "dependencies": {
+        "@framework/simple5": "^4.0.0",
+        "@framework/simple-gulp": "^4.0.0",
+        "gulp": "^4.0.0"
+    },
+    "engines": {
+        "node": ">=6.9.2",
+        "npm": ">=3.0.0"
+    },
+    "eslintConfig": {
+        "extends": "@framework/eslint-config-simple"
+    },
+    "scripts": {
+        "watch": "gulp watch",
+        "build": "gulp build",
+        "eslint": "gulp eslint",
+        "compile": "gulp compile",
+        "bale": "gulp bale"
+    },
+    "private": true,
+    "simple": {
+        "name": "ued",
+        "develop": false,
+        "packages": {
+            "ued": "/ued/",
+            "common": "/common/",
+            "simple": "@framework/simple5/src/"
+        },
+        "dir": {
+            "src": "core/src/",
+            "build": "core/build/",
+            "dist": "core/dist/"
+        },
+        "root": "",
+        "initialize": "ued:initialize/main",
+        "router": "ued:router/main",
+        "bale": {
+            "zip": true,
+            "dir": "../"
+        },
+        "compile": {
+            "style": {
+                "remUnit": 100,
+                "baseWidth": 750
+            },
+            "server": [
+                "server"
+            ],
+            "static": [
+                "static"
+            ]
+        }
+    }
+}

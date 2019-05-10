@@ -1,0 +1,8 @@
+/*
+!/package.json
+!/.gitignore
+!/server/
+!/gulpfile.js
+!/core/
+/core/*
+!/core/src/

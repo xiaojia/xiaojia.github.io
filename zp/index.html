@@ -30,8 +30,6 @@
 </head>
 
 <body>
-    <audio src="./bg.mp3" class="audio" id="bg" controls="controls"
-           preload="auto"></audio>
     <p>
         <span>你。</span>
         <span>我们许久未联系了吧，你还好吗？</span>
@@ -56,11 +54,8 @@
         <span>速来速来速来速来速来速来速来速来速来</span>
     </p>
     <script>
-        var music = document.getElementById('bg');
-        if (music.paused) {
-            music.paused = false;
-            music.play();
-        }
+        audio = new Audio('./bg.mp3');
+        audio.play();
     </script>
 </body>
 

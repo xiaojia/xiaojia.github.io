@@ -26,10 +26,28 @@
             left: -1000px;
             top: -1000px;
         }
+
+        .masks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            text-align: center;
+            padding: 20%;
+            font-size: 36px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            z-index: 1;
+        }
     </style>
 </head>
 
 <body>
+    <div class="masks" id="play">阅读</div>
     <p>
         <span>你。</span>
         <span>我们许久未联系了吧，你还好吗？</span>
@@ -54,8 +72,12 @@
         <span>速来速来速来速来速来速来速来速来速来</span>
     </p>
     <script>
-        audio = new Audio('./bg.mp3');
-        audio.play();
+        var audio = new Audio('./bg.mp3');
+        var play = document.getElementById('play');
+        play.addEventListener('click', function () {
+            document.body.removeChild(play);
+            audio.play();
+        }, false);
     </script>
 </body>
 

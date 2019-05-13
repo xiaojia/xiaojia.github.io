@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <audio src="./bg.mp3" class="audio" autoplay="autoplay" controls="controls"
+    <audio src="./bg.mp3" class="audio" id="bg" controls="controls"
            preload="auto"></audio>
     <p>
         <span>你。</span>
@@ -51,6 +51,13 @@
         <span>而是我在 <a href="https://www.mucang.cn/job/#tab1/item11">木仓科技</a> 找到了工作。</span>
         <span>速来速来速来速来速来速来速来速来速来</span>
     </p>
+    <script>
+        var music = document.getElementById('bg');
+        if (music.paused) {
+            music.paused = false;
+            music.play();
+        }
+    </script>
 </body>
 
 </html>

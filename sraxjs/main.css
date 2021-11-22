@@ -1,0 +1,25 @@
+/*!*****************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/less-loader/dist/cjs.js!./src/application/home/main.less ***!
+  \*****************************************************************************************************************************************************/
+body,
+html {
+  margin: 0;
+  height: 100%;
+}
+body {
+  background-image: linear-gradient(-45deg, #150937, #612d50);
+  display: flex;
+  align-items: center;
+}
+.home-E11XO {
+  font-size: 45px;
+  text-align: center;
+  color: #fff;
+  flex: 1;
+  line-height: 1.5;
+}
+.home-E11XO > .date-time-EboS9 {
+  padding-top: 20px;
+  font-size: 14px;
+}
+
